@@ -1,4 +1,9 @@
+using LibraryApp.Api.Db;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 
@@ -14,6 +19,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    await Seed.FillInDbAsync(app.Logger);
 }
 
 app.UseHttpsRedirection();
