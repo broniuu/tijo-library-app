@@ -1,6 +1,10 @@
-﻿namespace LibraryApp.Api.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class BooksController
+namespace LibraryApp.Api.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class BooksController : ControllerBase
 {
-    
+    private ILogger<BooksController> _logger;
 }

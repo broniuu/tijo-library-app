@@ -53,63 +53,81 @@ public static class Seed
             Title = "Summa Contra Brzęczek",
             Authors = new List<Author> { _aquinasAuthor, _lewandowskiAuthor },
             Tags = new List<Tag> { _theologyTag, _historyTag, _sportTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 14,
+            CountOfBorrowedPrintCopies = 14
         },
         new Book
         {
             Title = "An Good Dish For Hogwart Catholics",
             Authors = new List<Author> { _lefebvreAuthor, _rowlingAuthor, _maklowiczAuthor },
             Tags = new List<Tag> { _kitchenTag, _fantasyTag, _theologyTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 11,
+            CountOfBorrowedPrintCopies = 4
         },
         new Book
         {
             Title = "Final Appeal",
             Authors = new List<Author> { _mrozAuthor },
             Tags = new List<Tag> { _thrillerTag, _womanTag },
-            HasHardCover = false
+            HasHardCover = false,
+            TotalCountOfPrintCopies = 20,
+            CountOfBorrowedPrintCopies = 20,
         },
         new Book
         {
             Title = "Revision",
             Authors = new List<Author> { _mrozAuthor },
             Tags = new List<Tag> { _thrillerTag },
-            HasHardCover = false
+            HasHardCover = false,
+            TotalCountOfPrintCopies = 11,
+            CountOfBorrowedPrintCopies = 10
         },
         new Book
         {
             Title = "Tragedy of Second Vatican Council",
             Authors = new List<Author> { _lefebvreAuthor, _aquinasAuthor },
             Tags = new List<Tag> { _thrillerTag, _historyTag, _theologyTag },
-            HasHardCover = false
+            HasHardCover = false,
+            TotalCountOfPrintCopies = 18,
+            CountOfBorrowedPrintCopies = 7
         },
         new Book
         {
             Title = "Lord of the Dumbledore",
             Authors = new List<Author> { _rowlingAuthor, _tolkienAuthor },
             Tags = new List<Tag> { _thrillerTag, _fantasyTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 10,
+            CountOfBorrowedPrintCopies = 9
         },
         new Book
         {
             Title = "They Have Uncrowned Him",
             Authors = new List<Author> { _lefebvreAuthor },
             Tags = new List<Tag> { _thrillerTag, _fantasyTag, _thrillerTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 37,
+            CountOfBorrowedPrintCopies = 21
         },
         new Book
         {
             Title = "How to not play",
             Authors = new List<Author> { _lewandowskiAuthor },
             Tags = new List<Tag> { _sportTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 36,
+            CountOfBorrowedPrintCopies = 24
         },
         new Book
         {
             Title = "Witcher can into space",
             Authors = new List<Author> { _sapkowskiAuthor },
             Tags = new List<Tag> { _scienceFictionTag, _thrillerTag },
-            HasHardCover = true
+            HasHardCover = true,
+            TotalCountOfPrintCopies = 20,
+            CountOfBorrowedPrintCopies = 5
         }
     };
 
