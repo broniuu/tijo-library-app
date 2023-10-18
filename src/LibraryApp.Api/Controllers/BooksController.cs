@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LibraryApp.Api.Dtos;
+using LibraryApp.Api.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApp.Api.Controllers;
 
@@ -6,5 +8,16 @@ namespace LibraryApp.Api.Controllers;
 [Route("[controller]")]
 public class BooksController : ControllerBase
 {
-    private ILogger<BooksController> _logger;
+    private readonly BooksService _booksService;
+
+    public BooksController(BooksService booksService)
+    {
+        _booksService = booksService;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetBooks([FromQuery] FilterBooksQuery query)
+    {
+        return await _booksService.GetFilteredAsync(query);
+    }
 }
