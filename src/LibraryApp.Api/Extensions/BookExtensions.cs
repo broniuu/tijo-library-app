@@ -1,5 +1,5 @@
 ﻿using LibraryApp.Api.Db.Entities;
-using LibraryApp.Api.Dtos;
+using LibraryApp.Shared.Dtos;
 
 namespace LibraryApp.Api.Extensions;
 
@@ -12,5 +12,6 @@ public static class BookExtensions
         book.Tags.Select(t => t.ToTagOfBookDto()).ToList(), 
         book.HasHardCover, 
         book.TotalCountOfPrintCopies,
-        book.CountOfBorrowedPrintCopies);
+        book.CountOfBorrowedPrintCopies,
+        book.ImageUrl);
 }

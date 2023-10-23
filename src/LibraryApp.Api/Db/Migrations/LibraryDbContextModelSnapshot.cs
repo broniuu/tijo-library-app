@@ -78,6 +78,10 @@ namespace LibraryApp.Api.Migrations
                     b.Property<bool>("HasHardCover")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");

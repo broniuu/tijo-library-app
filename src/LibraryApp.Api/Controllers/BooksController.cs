@@ -1,11 +1,11 @@
-﻿using LibraryApp.Api.Dtos;
-using LibraryApp.Api.Services;
+﻿using LibraryApp.Api.Services;
+using LibraryApp.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApp.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("books")]
 public class BooksController : ControllerBase
 {
     private readonly BooksService _booksService;

@@ -1,6 +1,4 @@
-﻿using LibraryApp.Api.Db.Entities;
-
-namespace LibraryApp.Api.Dtos;
+﻿namespace LibraryApp.Shared.Dtos;
 
 public record BookDto(
     Guid BookId, 
@@ -9,4 +7,5 @@ public record BookDto(
     List<TagOfBookDto> Tags,
     bool HasHardCover,
     int TotalCountOfPrintCopies,
-    int CountOfBorrowedPrintCopies);
+    int CountOfBorrowedPrintCopies,
+    string ImageUrl);

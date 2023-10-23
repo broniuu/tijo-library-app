@@ -1,4 +1,4 @@
-﻿namespace LibraryApp.Api.Dtos;
+﻿namespace LibraryApp.Shared.Dtos;
 
 public class FilterBooksQuery
 {

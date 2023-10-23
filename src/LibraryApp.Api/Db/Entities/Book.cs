@@ -9,4 +9,5 @@ public class Book
     public bool HasHardCover { get; set; }
     public int TotalCountOfPrintCopies { get; set; }
     public int CountOfBorrowedPrintCopies { get; set; }
+    public string ImageUrl { get; set; }
 }

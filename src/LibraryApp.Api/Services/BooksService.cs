@@ -1,10 +1,8 @@
 ﻿using LibraryApp.Api.Builders;
 using LibraryApp.Api.Db;
 using LibraryApp.Api.Db.Entities;
-using LibraryApp.Api.Dtos;
 using LibraryApp.Api.Extensions;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+using LibraryApp.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Api.Services;

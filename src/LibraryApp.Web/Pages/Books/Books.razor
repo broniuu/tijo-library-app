@@ -1,0 +1,57 @@
+﻿@page "/Books"
+@using LibraryApp.Shared.Dtos
+@using LibraryApp.Shared
+
+@inject BooksService BooksService
+<h3>Books</h3>
+
+<div class="container-fluid d-flex flex-xxl-row flex-wrap gap-5 md">
+    @foreach (var book in _books)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@book.ImageUrl" class="card-img-top" alt="" style="height: 400px;">
+            <div class="card-body d-flex flex-column">
+                <div class="d-flex flex-row gap-1">
+                    @foreach (var tag in book.Tags)
+                    {
+                        <span class="badge bg-warning">@tag.Title</span>
+                    }
+                </div>
+                <h5 class="card-title">@book.Title</h5>
+                <ul class="list-group">
+                    <li class="list-group-item active">Authors:</li>
+                    @foreach (var author in book.Authors)
+                    {
+                        <li class="list-group-item">@author.Name @author.Surname</li>
+                    }
+                </ul>
+                @{ var canBeBorrowed = book.CanBeBorrowed(); }
+
+                <div class="d-flex flex-column justify-content-end flex-grow-1 mt-3">
+                    @if (!canBeBorrowed)
+                    {
+                        <div class="text-danger">All print copies of this book are borrowed</div>
+                    }
+                    <a href="#" class="@GetCssForDetailsButton(canBeBorrowed)">Details</a>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+
+@code {
+    List<BookDto> _books = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _books = await BooksService.GetFiltered(new FilterBooksQuery { ShowBorrowed = true }) ?? new List<BookDto>();
+    }
+
+    string GetCssForDetailsButton(bool isBooked)
+    {
+        var cssClasses = "btn btn-primary";
+        return isBooked ? cssClasses : $"{cssClasses} disabled";
+    }
+
+}
