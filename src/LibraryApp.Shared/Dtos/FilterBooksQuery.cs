@@ -5,7 +5,7 @@ public class FilterBooksQuery
     public List<Guid>? TagIds { get; set; } = new();
     public List<Guid>? AuthorIds { get; set; } = new();
     public string? KeyWord { get; set; }
-    public HardcoverRequirement HardcoverRequirement { get; set; }
+    public HardcoverRequirement HardcoverRequirement { get; set; } = HardcoverRequirement.Has;
     public bool ShowBorrowed { get; set; }
 }
 

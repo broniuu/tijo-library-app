@@ -1,12 +1,11 @@
-﻿@page "/Books"
+﻿@page "/books"
 @using LibraryApp.Shared.Dtos
 @using LibraryApp.Shared
-@using System.Text.Json
 
 @inject BooksService BooksService
-@inject ILogger<Books> Logger
+@inject NavigationManager Navigation
 
-<FilterBooks OnSearch="@(f => Logger.LogInformation("{Filter}", JsonSerializer.Serialize(f)))"/>
+<FilterBooks OnSearch="@(SearchBooks)"/>
 
 <div class="container-fluid d-flex flex-xxl-row flex-wrap gap-5 md">
     @foreach (var book in _books)
@@ -35,7 +34,7 @@
                     {
                         <div class="text-danger">All print copies of this book are borrowed</div>
                     }
-                    <a href="#" class="@GetCssForDetailsButton(canBeBorrowed)">Details</a>
+                    <button class="@GetCssForDetailsButton(canBeBorrowed)" @onclick="() => NavigateToBorrowPage(book.BookId)">Borrow</button>
                 </div>
             </div>
 
@@ -46,15 +45,18 @@
 @code {
     List<BookDto> _books = new();
 
-    protected override async Task OnInitializedAsync()
-    {
-        _books = await BooksService.GetFiltered(new FilterBooksQuery { ShowBorrowed = true }) ?? new List<BookDto>();
-    }
-
     string GetCssForDetailsButton(bool isBooked)
     {
         var cssClasses = "btn btn-primary";
         return isBooked ? cssClasses : $"{cssClasses} disabled";
     }
+
+    async Task SearchBooks(FilterBooksQuery filter)
+    {
+        
+        _books = await BooksService.GetFiltered(filter) ?? new List<BookDto>();
+    }
+    
+    void NavigateToBorrowPage(Guid bookId) => Navigation.NavigateTo($"books/{bookId}/borrow");
 
 }

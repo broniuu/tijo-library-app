@@ -24,6 +24,7 @@ public static class QueryStringBuilder
         return value switch
         {
             null => StringValues.Empty,
+            string text => text,
             DateTimeOffset date => date.ToString("o", CultureInfo.InvariantCulture),
             IEnumerable collection => new StringValues(collection.Cast<object>()
                 .Where(x => x != null)

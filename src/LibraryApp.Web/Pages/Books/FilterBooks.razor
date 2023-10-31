@@ -21,7 +21,7 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" @bind="_filter.ShowBorrowed">
                 <label class="form-check-label">
-                    Can bo borrowed
+                    Show borrowed
                 </label>
             </div>
             <div class="input-group mb-3">
@@ -84,7 +84,7 @@
     [Parameter]
     public EventCallback<FilterBooksQuery> OnSearch { get; set; }
 
-    FilterBooksQuery _filter = new();
+    FilterBooksQuery _filter = new() {HardcoverRequirement = HardcoverRequirement.Has};
     List<SelectableAuthor> _authorsToChoose = new();
     List<SelectableTag> _tagsToChoose = new();
     bool _showAuthors;
