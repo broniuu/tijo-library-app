@@ -8,9 +8,10 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+builder.Services.AddLogging();
 builder.Services.AddHttpClient();
 builder.Services.AddBlazoredToast();
-builder.Services.AddScoped<BooksService>();
+builder.Services.AddCustomServices();
 
 
 await builder.Build().RunAsync();

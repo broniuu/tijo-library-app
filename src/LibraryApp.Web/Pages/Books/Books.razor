@@ -1,9 +1,12 @@
 ﻿@page "/Books"
 @using LibraryApp.Shared.Dtos
 @using LibraryApp.Shared
+@using System.Text.Json
 
 @inject BooksService BooksService
-<h3>Books</h3>
+@inject ILogger<Books> Logger
+
+<FilterBooks OnSearch="@(f => Logger.LogInformation("{Filter}", JsonSerializer.Serialize(f)))"/>
 
 <div class="container-fluid d-flex flex-xxl-row flex-wrap gap-5 md">
     @foreach (var book in _books)
