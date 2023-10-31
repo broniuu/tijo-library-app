@@ -69,3 +69,4 @@ dotnet run
 - CSS
 - Entity Framework
 - ASP .NET Core
+- XUnit
