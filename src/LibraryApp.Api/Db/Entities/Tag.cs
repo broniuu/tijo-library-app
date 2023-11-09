@@ -2,7 +2,7 @@
 
 public class Tag
 {
-    public Guid TagId { get; set; }
+    public Guid TagId { get; set; } = Guid.NewGuid();
     public string Title { get; set; }
     public List<Book> Books { get; set; }
 }
