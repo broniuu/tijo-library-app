@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Web", "LibraryAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Shared", "LibraryApp.Shared\LibraryApp.Shared.csproj", "{AFCEB7B0-F8E8-4FE3-989D-58B73AF83C7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Api.UnitTests", "LibraryApp.Api.UnitTests\LibraryApp.Api.UnitTests.csproj", "{F34607C0-3D8F-4992-96B8-2147238A49AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Api.Tests", "LibraryApp.Api.Tests\LibraryApp.Api.Tests.csproj", "{F34607C0-3D8F-4992-96B8-2147238A49AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

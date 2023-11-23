@@ -1,8 +1,9 @@
 ﻿using LibraryApp.Api.Db.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Api.Db;
 
-public class Seed
+public static class Seed
 {
     
     public static Tag ThrillerTag = new() { Title = "thriller" };
@@ -114,7 +115,7 @@ public class Seed
         {
             Title = "They Have Uncrowned Him",
             Authors = new List<Author> { LefebvreAuthor },
-            Tags = new List<Tag> { ThrillerTag, FantasyTag, ThrillerTag },
+            Tags = new List<Tag> { ThrillerTag, FantasyTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 37,
             CountOfBorrowedPrintCopies = 21,
@@ -142,9 +143,12 @@ public class Seed
         }
     };
 
-    public static async Task FillInDbAsync(ILogger logger)
+    public static async Task FillInDbAsync(this IApplicationBuilder app)
     {
-        await using var dbContext = new LibraryDbContext();
+        await using var scope = app.ApplicationServices.CreateAsyncScope();
+        var services = scope.ServiceProvider;
+        var dbContext = services.GetRequiredService<LibraryDbContext>();
+        var logger = services.GetRequiredService<ILogger<Program>>();
         if (!dbContext.Set<Tag>().Any())
         {
             await dbContext.Set<Tag>().AddRangeAsync(Tags);

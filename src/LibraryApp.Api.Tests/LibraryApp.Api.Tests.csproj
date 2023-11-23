@@ -7,6 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <RootNamespace>LibraryApp.Api.UnitTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,6 +30,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\LibraryApp.Api\LibraryApp.Api.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UnitTests\" />
     </ItemGroup>
 
 </Project>
