@@ -4,8 +4,6 @@ namespace LibraryApp.Api.Db;
 
 public class Seed
 {
-    private readonly LibraryDbContext _dbContext;
-    private readonly ILogger _logger;
     
     public static Tag ThrillerTag = new() { Title = "thriller" };
     public static Tag FantasyTag = new() { Title = "fantasy" };
@@ -144,33 +142,28 @@ public class Seed
         }
     };
 
-    public Seed(LibraryDbContext dbContext, ILogger logger)
+    public static async Task FillInDbAsync(ILogger logger)
     {
-        _dbContext = dbContext;
-        _logger = logger;
-    }
-
-    public async Task FillInDbAsync()
-    {
-        if (!_dbContext.Set<Tag>().Any())
+        await using var dbContext = new LibraryDbContext();
+        if (!dbContext.Set<Tag>().Any())
         {
-            await _dbContext.Set<Tag>().AddRangeAsync(Tags);
-            await _dbContext.SaveChangesAsync();
-            _logger.LogInformation("Tags added");
+            await dbContext.Set<Tag>().AddRangeAsync(Tags);
+            await dbContext.SaveChangesAsync();
+            logger.LogInformation("Tags added");
         }
 
-        if (!_dbContext.Set<Author>().Any())
+        if (!dbContext.Set<Author>().Any())
         {
-            await _dbContext.Set<Author>().AddRangeAsync(Authors);
-            await _dbContext.SaveChangesAsync();
-            _logger.LogInformation("Authors added");
+            await dbContext.Set<Author>().AddRangeAsync(Authors);
+            await dbContext.SaveChangesAsync();
+            logger.LogInformation("Authors added");
         }
 
-        if (!_dbContext.Set<Book>().Any())
+        if (!dbContext.Set<Book>().Any())
         {
-            await _dbContext.Set<Book>().AddRangeAsync(Books);
-            await _dbContext.SaveChangesAsync();
-            _logger.LogInformation("Books added");
+            await dbContext.Set<Book>().AddRangeAsync(Books);
+            await dbContext.SaveChangesAsync();
+            logger.LogInformation("Books added");
         }
     }
 }

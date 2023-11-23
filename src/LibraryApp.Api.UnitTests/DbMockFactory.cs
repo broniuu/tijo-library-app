@@ -1,13 +1,5 @@
-﻿using System.Collections;
-using System.Collections.ObjectModel;
-using System.Linq.Expressions;
-using LibraryApp.Api.Db;
+﻿using LibraryApp.Api.Db;
 using LibraryApp.Api.Db.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Moq;
-using Moq.EntityFrameworkCore;
-using NSubstitute;
 
 namespace LibraryApp.Api.UnitTests;
 

@@ -26,9 +26,7 @@ if (app.Environment.IsDevelopment())
         .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader());
-    await using var dbContext = new LibraryDbContext();
-    var seed = new Seed(dbContext, app.Logger);
-    await seed.FillInDbAsync();
+    await Seed.FillInDbAsync(app.Logger);
 }
 
 app.UseHttpsRedirection();

@@ -17,11 +17,6 @@ public class LibraryDbContext : DbContext
         var path = Environment.GetFolderPath(folder);
         DbPath = Path.Join(path, "library.db");
     }
-
-    public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
-    {
-        
-    }
     
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite($"Data Source={DbPath}");

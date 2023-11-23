@@ -29,7 +29,7 @@ namespace LibraryApp.Api.Migrations
 
                     b.HasIndex("BooksBookId");
 
-                    b.ToTable("AuthorBook");
+                    b.ToTable("AuthorBook", (string)null);
                 });
 
             modelBuilder.Entity("BookTag", b =>
@@ -44,7 +44,7 @@ namespace LibraryApp.Api.Migrations
 
                     b.HasIndex("TagsTagId");
 
-                    b.ToTable("BookTag");
+                    b.ToTable("BookTag", (string)null);
                 });
 
             modelBuilder.Entity("LibraryApp.Api.Db.Entities.Author", b =>
@@ -63,7 +63,7 @@ namespace LibraryApp.Api.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("LibraryApp.Api.Db.Entities.Book", b =>
@@ -91,7 +91,7 @@ namespace LibraryApp.Api.Migrations
 
                     b.HasKey("BookId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("LibraryApp.Api.Db.Entities.Tag", b =>
@@ -106,7 +106,7 @@ namespace LibraryApp.Api.Migrations
 
                     b.HasKey("TagId");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("AuthorBook", b =>
