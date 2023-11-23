@@ -66,7 +66,7 @@ public static class Seed
             HasHardCover = true,
             TotalCountOfPrintCopies = 11,
             CountOfBorrowedPrintCopies = 4,
-            ImageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sspxasia.com%2FDocuments%2FArchbishop-Lefebvre%2FOpenLetterToConfusedCatholics%2Findex.htm&psig=AOvVaw1tXFZGauPNSMQ9XTr-G-N-&ust=1697705258479000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNCix4ib_4EDFQAAAAAdAAAAABAE"
+            ImageUrl = "https://ecsmedia.pl/c/c-k-kuchnia-b-iext131156627.jpg"
         },
         new Book
         {
@@ -96,7 +96,7 @@ public static class Seed
             HasHardCover = false,
             TotalCountOfPrintCopies = 18,
             CountOfBorrowedPrintCopies = 7,
-            ImageUrl = "https://static.wikia.nocookie.net/starwars/images/c/c0/A_Tale_of_Tragedy_SWDConv.png/revision/latest?cb=20190416005745"
+            ImageUrl = "https://static.wikia.nocookie.net/starwars/images/c/c0/A_Tale_of_Tragedy_SWDConv.png"
             
         },
         new Book
