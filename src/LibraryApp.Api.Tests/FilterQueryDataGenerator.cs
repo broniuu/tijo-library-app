@@ -7,18 +7,18 @@ public class FilterQueryDataGenerator
 {
     public static IEnumerable<object[]> GetData(List<BookDto> allBookDtos)
     {
-        // yield return new object[]
-        // {
-        //     new FilterBooksQuery
-        //     {
-        //         AuthorIds = new() { Seed.MaklowiczAuthor.AuthorId, Seed.AquinasAuthor.AuthorId },
-        //         TagIds = null,
-        //         HardcoverRequirement = HardcoverRequirement.Indifferent,
-        //         ShowBorrowed = true,
-        //         KeyWord = string.Empty
-        //     },
-        //     GetBookDtosByIndexes(allBookDtos,0, 1, 4)
-        // };
+        yield return new object[]
+        {
+            new FilterBooksQuery
+            {
+                AuthorIds = new() { Seed.MaklowiczAuthor.AuthorId, Seed.AquinasAuthor.AuthorId },
+                TagIds = null,
+                HardcoverRequirement = HardcoverRequirement.Indifferent,
+                ShowBorrowed = true,
+                KeyWord = string.Empty
+            },
+            GetBookDtosByIndexes(allBookDtos,0, 1, 4)
+        };
         yield return new object[]
         {
             new FilterBooksQuery
@@ -114,6 +114,15 @@ public class FilterQueryDataGenerator
                 KeyWord = string.Empty
             },
             GetBookDtosByIndexes(allBookDtos)
+        };
+        yield return new object[]
+        {
+            new FilterBooksQuery
+            {
+                HardcoverRequirement = HardcoverRequirement.DontHave,
+                ShowBorrowed = false,
+            },
+            GetBookDtosByIndexes(allBookDtos,3, 4)
         };
     }
     
