@@ -53,7 +53,7 @@ public class BooksService
         }
 
         _logger.LogInformation("Filter query: {Predicate}", predicate.ToString());
-        var books = await _dbContext.Books
+        var books = await _dbContext.Set<Book>()
             .Where(predicate)
             .Include(b => b.Authors)
             .Include(b => b.Tags)

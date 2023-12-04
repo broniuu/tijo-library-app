@@ -46,6 +46,17 @@ dotnet run
 dotnet run
 ```
 
+# Uruchomienie testów
+
+## Testy jednostkowe
+
+1. Przejdź do folderu `src/LibraryApp.Api.UnitTests`
+2. Uruchom testy poleceniem:
+
+```
+dotnet test   
+```
+
 # Dokumentacja API
 
 1) `/books`
@@ -69,3 +80,4 @@ dotnet run
 - CSS
 - Entity Framework
 - ASP .NET Core
+- XUnit

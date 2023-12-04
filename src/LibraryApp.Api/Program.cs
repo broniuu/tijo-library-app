@@ -1,5 +1,7 @@
 using LibraryApp.Api.Db;
+using LibraryApp.Api.Extensions;
 using LibraryApp.Api.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +14,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<LibraryDbContext>();
+builder.Services.AddLibraryDbContext("library.db");
 builder.Services.AddScoped<BooksService>();
 
 var app = builder.Build();
+await app.MigrateDb();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,7 +29,7 @@ if (app.Environment.IsDevelopment())
         .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader());
-    await Seed.FillInDbAsync(app.Logger);
+    await app.FillInDbAsync();
 }
 
 app.UseHttpsRedirection();

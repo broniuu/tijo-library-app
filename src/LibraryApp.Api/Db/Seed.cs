@@ -1,58 +1,60 @@
 ﻿using LibraryApp.Api.Db.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Api.Db;
 
 public static class Seed
 {
-    private static Tag _thrillerTag = new() { Title = "thriller" };
-    private static Tag _fantasyTag = new() { Title = "fantasy" };
-    private static Tag _scienceFictionTag = new() { Title = "science fiction" };
-    private static Tag _historyTag = new() { Title = "history" };
-    private static Tag _womanTag = new() { Title = "woman" };
-    private static Tag _sportTag = new() { Title = "sport" };
-    private static Tag _kitchenTag = new() { Title = "kitchen" };
-    private static Tag _theologyTag = new() { Title = "theology" };
+    
+    public static Tag ThrillerTag = new() { Title = "thriller" };
+    public static Tag FantasyTag = new() { Title = "fantasy" };
+    public static Tag ScienceFictionTag = new() { Title = "science fiction" };
+    public static Tag HistoryTag = new() { Title = "history" };
+    public static Tag WomanTag = new() { Title = "woman" };
+    public static Tag SportTag = new() { Title = "sport" };
+    public static Tag KitchenTag = new() { Title = "kitchen" };
+    public static Tag TheologyTag = new() { Title = "theology" };
 
-    private static Author _lewandowskiAuthor = new() { Name = "Robert", Surname = "Lewandowski" };
-    private static Author _sapkowskiAuthor = new() { Name = "Andrzej", Surname = "Sapkowski" };
-    private static Author _tolkienAuthor = new() { Name = "John Ronald Reuel", Surname = "Tolkien" };
-    private static Author _rowlingAuthor = new() { Name = "Joanne", Surname = "Rowling" };
-    private static Author _aquinasAuthor = new() { Name = "Thomas", Surname = "Aquinas" };
-    private static Author _lefebvreAuthor = new() { Name = "Marcel", Surname = "Lefebvre" };
-    private static Author _mrozAuthor = new() { Name = "Remigiusz", Surname = "Mróz" };
-    private static Author _maklowiczAuthor = new() { Name = "Robert", Surname = "Makłowicz" };
+    public static Author LewandowskiAuthor = new() { Name = "Robert", Surname = "Lewandowski" };
+    public static Author SapkowskiAuthor = new() { Name = "Andrzej", Surname = "Sapkowski" };
+    public static Author TolkienAuthor = new() { Name = "John Ronald Reuel", Surname = "Tolkien" };
+    public static Author RowlingAuthor = new() { Name = "Joanne", Surname = "Rowling" };
+    public static Author AquinasAuthor = new() { Name = "Thomas", Surname = "Aquinas" };
+    public static Author LefebvreAuthor = new() { Name = "Marcel", Surname = "Lefebvre" };
+    public static Author MrozAuthor = new() { Name = "Remigiusz", Surname = "Mróz" };
+    public static Author MaklowiczAuthor = new() { Name = "Robert", Surname = "Makłowicz" };
 
-    private static readonly List<Tag> Tags = new()
+    public static readonly List<Tag> Tags = new()
     {
-        _thrillerTag,
-        _fantasyTag,
-        _scienceFictionTag,
-        _historyTag,
-        _womanTag,
-        _sportTag,
-        _kitchenTag,
-        _theologyTag
+        ThrillerTag,
+        FantasyTag,
+        ScienceFictionTag,
+        HistoryTag,
+        WomanTag,
+        SportTag,
+        KitchenTag,
+        TheologyTag
     };
 
-    private static readonly List<Author> Authors = new()
+    public static readonly List<Author> Authors = new()
     {
-        _lewandowskiAuthor,
-        _sapkowskiAuthor,
-        _tolkienAuthor,
-        _rowlingAuthor,
-        _aquinasAuthor,
-        _lefebvreAuthor,
-        _mrozAuthor,
-        _maklowiczAuthor,
+        LewandowskiAuthor,
+        SapkowskiAuthor,
+        TolkienAuthor,
+        RowlingAuthor,
+        AquinasAuthor,
+        LefebvreAuthor,
+        MrozAuthor,
+        MaklowiczAuthor,
     };
 
-    private static readonly List<Book> Books = new()
+    public static readonly List<Book> Books = new()
     {
         new Book
         {
             Title = "Summa Contra Brzęczek",
-            Authors = new List<Author> { _aquinasAuthor, _lewandowskiAuthor },
-            Tags = new List<Tag> { _theologyTag, _historyTag, _sportTag },
+            Authors = new List<Author> { AquinasAuthor, LewandowskiAuthor },
+            Tags = new List<Tag> { TheologyTag, HistoryTag, SportTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 14,
             CountOfBorrowedPrintCopies = 14,
@@ -61,8 +63,8 @@ public static class Seed
         new Book
         {
             Title = "An Good Dish For Hogwart Catholics",
-            Authors = new List<Author> { _lefebvreAuthor, _rowlingAuthor, _maklowiczAuthor },
-            Tags = new List<Tag> { _kitchenTag, _fantasyTag, _theologyTag },
+            Authors = new List<Author> { LefebvreAuthor, RowlingAuthor, MaklowiczAuthor },
+            Tags = new List<Tag> { KitchenTag, FantasyTag, TheologyTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 11,
             CountOfBorrowedPrintCopies = 4,
@@ -71,8 +73,8 @@ public static class Seed
         new Book
         {
             Title = "Final Appeal",
-            Authors = new List<Author> { _mrozAuthor },
-            Tags = new List<Tag> { _thrillerTag, _womanTag },
+            Authors = new List<Author> { MrozAuthor },
+            Tags = new List<Tag> { ThrillerTag, WomanTag },
             HasHardCover = false,
             TotalCountOfPrintCopies = 20,
             CountOfBorrowedPrintCopies = 20,
@@ -81,8 +83,8 @@ public static class Seed
         new Book
         {
             Title = "Revision",
-            Authors = new List<Author> { _mrozAuthor },
-            Tags = new List<Tag> { _thrillerTag },
+            Authors = new List<Author> { MrozAuthor },
+            Tags = new List<Tag> { ThrillerTag },
             HasHardCover = false,
             TotalCountOfPrintCopies = 11,
             CountOfBorrowedPrintCopies = 10,
@@ -91,8 +93,8 @@ public static class Seed
         new Book
         {
             Title = "Tragedy of Second Vatican Council",
-            Authors = new List<Author> { _lefebvreAuthor, _aquinasAuthor },
-            Tags = new List<Tag> { _thrillerTag, _historyTag, _theologyTag },
+            Authors = new List<Author> { LefebvreAuthor, AquinasAuthor },
+            Tags = new List<Tag> { ThrillerTag, HistoryTag, TheologyTag },
             HasHardCover = false,
             TotalCountOfPrintCopies = 18,
             CountOfBorrowedPrintCopies = 7,
@@ -102,8 +104,8 @@ public static class Seed
         new Book
         {
             Title = "Lord of the Dumbledore",
-            Authors = new List<Author> { _rowlingAuthor, _tolkienAuthor },
-            Tags = new List<Tag> { _thrillerTag, _fantasyTag },
+            Authors = new List<Author> { RowlingAuthor, TolkienAuthor },
+            Tags = new List<Tag> { ThrillerTag, FantasyTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 10,
             CountOfBorrowedPrintCopies = 9,
@@ -112,8 +114,8 @@ public static class Seed
         new Book
         {
             Title = "They Have Uncrowned Him",
-            Authors = new List<Author> { _lefebvreAuthor },
-            Tags = new List<Tag> { _thrillerTag, _fantasyTag, _thrillerTag },
+            Authors = new List<Author> { LefebvreAuthor },
+            Tags = new List<Tag> { ThrillerTag, FantasyTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 37,
             CountOfBorrowedPrintCopies = 21,
@@ -122,8 +124,8 @@ public static class Seed
         new Book
         {
             Title = "How to not play",
-            Authors = new List<Author> { _lewandowskiAuthor },
-            Tags = new List<Tag> { _sportTag },
+            Authors = new List<Author> { LewandowskiAuthor },
+            Tags = new List<Tag> { SportTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 36,
             CountOfBorrowedPrintCopies = 24,
@@ -132,8 +134,8 @@ public static class Seed
         new Book
         {
             Title = "Witcher can into space",
-            Authors = new List<Author> { _sapkowskiAuthor },
-            Tags = new List<Tag> { _scienceFictionTag, _thrillerTag },
+            Authors = new List<Author> { SapkowskiAuthor },
+            Tags = new List<Tag> { ScienceFictionTag, ThrillerTag },
             HasHardCover = true,
             TotalCountOfPrintCopies = 20,
             CountOfBorrowedPrintCopies = 5,
@@ -141,26 +143,29 @@ public static class Seed
         }
     };
 
-    public static async Task FillInDbAsync(ILogger logger)
+    public static async Task FillInDbAsync(this IApplicationBuilder app)
     {
-        await using var dbContext = new LibraryDbContext();
-        if (!dbContext.Tags.Any())
+        await using var scope = app.ApplicationServices.CreateAsyncScope();
+        var services = scope.ServiceProvider;
+        var dbContext = services.GetRequiredService<LibraryDbContext>();
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        if (!dbContext.Set<Tag>().Any())
         {
-            await dbContext.Tags.AddRangeAsync(Tags);
+            await dbContext.Set<Tag>().AddRangeAsync(Tags);
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Tags added");
         }
 
-        if (!dbContext.Authors.Any())
+        if (!dbContext.Set<Author>().Any())
         {
-            await dbContext.Authors.AddRangeAsync(Authors);
+            await dbContext.Set<Author>().AddRangeAsync(Authors);
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Authors added");
         }
 
-        if (!dbContext.Books.Any())
+        if (!dbContext.Set<Book>().Any())
         {
-            await dbContext.Books.AddRangeAsync(Books);
+            await dbContext.Set<Book>().AddRangeAsync(Books);
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Books added");
         }
